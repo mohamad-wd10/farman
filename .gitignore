@@ -1,0 +1,7 @@
+```
+# Compressed files
+*.tar.gz
+
+# Templates directory build artifacts (if any)
+farman/templates/*.html
+```

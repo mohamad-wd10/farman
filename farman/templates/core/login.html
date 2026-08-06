@@ -1,0 +1,173 @@
+{% extends 'core/base.html' %}
+
+{% block title %}ورود به فرمان | سیستم عامل هوش مصنوعی کسب‌وکار{% endblock %}
+
+{% block body %}
+<div class="min-h-screen gradient-bg flex items-center justify-center p-4" 
+     x-data="{ showHelp: false }">
+    
+    <!-- Help Modal -->
+    <div x-show="showHelp" 
+         x-transition:enter="transition ease-out duration-300"
+         x-transition:enter-start="opacity-0"
+         x-transition:enter-end="opacity-100"
+         x-transition:leave="transition ease-in duration-200"
+         x-transition:leave-start="opacity-100"
+         x-transition:leave-end="opacity-0"
+         class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm"
+         @click.self="showHelp = false"
+         style="display: none;">
+        
+        <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl max-w-md w-full mx-4 overflow-hidden animate-slide-up">
+            <div class="p-6">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white">راهنمای ورود</h3>
+                    <button @click="showHelp = false" class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+                
+                <div class="space-y-4 text-gray-700 dark:text-gray-300">
+                    <div class="flex items-start gap-3">
+                        <div class="flex-shrink-0 w-8 h-8 bg-primary-100 dark:bg-primary-900 rounded-full flex items-center justify-center text-primary-600 dark:text-primary-400 font-bold">1</div>
+                        <p>اگر قبلاً ثبت‌نام کرده‌اید، با ایمیل و رمز عبور خود وارد شوید.</p>
+                    </div>
+                    
+                    <div class="flex items-start gap-3">
+                        <div class="flex-shrink-0 w-8 h-8 bg-primary-100 dark:bg-primary-900 rounded-full flex items-center justify-center text-primary-600 dark:text-primary-400 font-bold">2</div>
+                        <p>کد شرکت شما توسط ادمین صادر شده است. آن را از مدیر خود دریافت کنید.</p>
+                    </div>
+                    
+                    <div class="flex items-start gap-3">
+                        <div class="flex-shrink-0 w-8 h-8 bg-primary-100 dark:bg-primary-900 rounded-full flex items-center justify-center text-primary-600 dark:text-primary-400 font-bold">3</div>
+                        <p>پس از ورود، به پنل مدیریت شرکت خود دسترسی خواهید داشت.</p>
+                    </div>
+                    
+                    <div class="flex items-start gap-3">
+                        <div class="flex-shrink-0 w-8 h-8 bg-success-100 dark:bg-success-900 rounded-full flex items-center justify-center text-success-600 dark:text-success-400 font-bold">💡</div>
+                        <p>۱۴ روز اول رایگان است. پس از آن می‌توانید اشتراک ماهانه ۹۹ دلاری را از طریق ربات تلگرام فعال کنید.</p>
+                    </div>
+                </div>
+                
+                <button @click="showHelp = false" 
+                        class="mt-6 w-full bg-primary-600 hover:bg-primary-700 text-white font-bold py-3 px-4 rounded-xl transition-colors duration-200">
+                    متوجه شدم
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Login Card -->
+    <div class="glass rounded-3xl shadow-2xl w-full max-w-md overflow-hidden animate-fade-in">
+        <!-- Header -->
+        <div class="bg-gradient-to-r from-primary-600 to-secondary-600 p-8 text-center">
+            <div class="mb-4">
+                <svg class="w-20 h-20 mx-auto text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                </svg>
+            </div>
+            <h1 class="text-3xl font-bold text-white mb-2">فرمان</h1>
+            <p class="text-primary-100 text-sm">سیستم عامل هوش مصنوعی برای مدیریت شرکت</p>
+        </div>
+        
+        <!-- Form -->
+        <div class="p-8">
+            <form method="post" action="" class="space-y-6">
+                {% csrf_token %}
+                
+                <!-- Email Field -->
+                <div>
+                    <label for="email" class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+                        ایمیل
+                    </label>
+                    <input type="email" 
+                           id="email" 
+                           name="email" 
+                           required
+                           class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-all duration-200"
+                           placeholder="example@company.com">
+                </div>
+                
+                <!-- Password Field -->
+                <div>
+                    <label for="password" class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+                        رمز عبور
+                    </label>
+                    <input type="password" 
+                           id="password" 
+                           name="password" 
+                           required
+                           class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-all duration-200"
+                           placeholder="••••••••">
+                </div>
+                
+                <!-- Company Code Field -->
+                <div>
+                    <label for="company_code" class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+                        کد شرکت
+                    </label>
+                    <input type="text" 
+                           id="company_code" 
+                           name="company_code" 
+                           required
+                           class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-all duration-200 tracking-wider text-center text-lg"
+                           placeholder="FARMAN-XXXX">
+                </div>
+                
+                <!-- Remember Me & Forgot Password -->
+                <div class="flex items-center justify-between">
+                    <label class="flex items-center">
+                        <input type="checkbox" class="w-4 h-4 text-primary-600 border-gray-300 rounded focus:ring-primary-500">
+                        <span class="mr-2 text-sm text-gray-600 dark:text-gray-400">مرا به خاطر بسپار</span>
+                    </label>
+                    <a href="#" class="text-sm text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 font-semibold">
+                        رمز عبور را فراموش کرده‌اید؟
+                    </a>
+                </div>
+                
+                <!-- Submit Button -->
+                <button type="submit" 
+                        class="w-full bg-gradient-to-r from-primary-600 to-secondary-600 hover:from-primary-700 hover:to-secondary-700 text-white font-bold py-3 px-4 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200">
+                    ورود به سامانه
+                </button>
+            </form>
+            
+            <!-- Divider -->
+            <div class="relative my-8">
+                <div class="absolute inset-0 flex items-center">
+                    <div class="w-full border-t border-gray-300 dark:border-gray-600"></div>
+                </div>
+                <div class="relative flex justify-center text-sm">
+                    <span class="px-4 bg-gray-50 dark:bg-gray-800 text-gray-500 dark:text-gray-400">یا</span>
+                </div>
+            </div>
+            
+            <!-- Register Link -->
+            <p class="text-center text-sm text-gray-600 dark:text-gray-400">
+                هنوز حساب ندارید؟
+                <a href="/register/" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 font-bold">
+                    ثبت‌نام رایگان (۱۴ روز تست)
+                </a>
+            </p>
+            
+            <!-- Help Button -->
+            <button @click="showHelp = true" 
+                    class="mt-4 w-full flex items-center justify-center gap-2 text-sm text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 transition-colors duration-200">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                راهنمای ورود
+            </button>
+        </div>
+        
+        <!-- Footer -->
+        <div class="bg-gray-50 dark:bg-gray-700 px-8 py-4 text-center">
+            <p class="text-xs text-gray-500 dark:text-gray-400">
+                © ۱۴۰۳ فرمان - تمامی حقوق محفوظ است
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock %}
