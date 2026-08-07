@@ -1,44 +1,47 @@
 ```
-# Compressed archives
-*.tar.gz
-
-# Environment files
-.env
-.env.local
-*.env.*
-
-# Dependencies
-__pycache__/
+# Compiled and build artifacts
 *.pyc
-*.pyo
-*.pyd
-.Python
-env/
-venv/
-.venv/
-.env/
-
-# Build and distribution
+__pycache__/
+*.o
+*.obj
 build/
 dist/
-*.egg-info/
-.installed.cfg
-*.egg
+*.tar.gz
 
-# IDE and editor files
+# Dependencies
+.venv/
+venv/
+.env
+.env.local
+.env.*
+
+# Logs and temp files
+*.log
+*.tmp
+*.swp
+
+# Editors
 .vscode/
 .idea/
-*.swp
-*.swo
-*~
-.DS_Store
-Thumbs.db
 
-# Logs
-*.log
-
-# Coverage
+# Coverage reports
 .coverage
 coverage/
 htmlcov/
+
+# Python specific
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+.Python
+*.pot
+
+# Django specific
+*.mo
+*.pot
+local_settings.py
+db.sqlite3
+media/
+staticfiles/
 ```
