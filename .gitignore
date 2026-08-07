@@ -1,59 +1,15 @@
-```
+# =========================================================
 # Python
+# =========================================================
+
 __pycache__/
 *.py[cod]
 *$py.class
+*.pyo
+*.pyd
 *.so
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
 
-# Virtual Environment
-venv/
-ENV/
-env/
-.venv/
-.env/
-
-# Django
-*.log
-local_settings.py
-db.sqlite3
-db.sqlite3-journal
-media/
-staticfiles/
-.env
-
-# IDE
-.vscode/
-.idea/
-*.swp
-*.swo
-*.tmp
-
-# OS
-.DS_Store
-Thumbs.db
-
-# Coverage
-.coverage
-htmlcov/
-.coverage.*
-
-# Distribution / packaging
+# Python build / packaging
 .Python
 build/
 develop-eggs/
@@ -73,146 +29,155 @@ share/python-wheels/
 .installed.cfg
 *.egg
 MANIFEST
+*.tar.gz
 
-# Pytest
-.pytest_cache/
 
-# Mypy
-.mypy_cache/
+# =========================================================
+# Virtual Environments
+# =========================================================
 
-# Celery
-celerybeat-schedule
-celerybeat.pid
-
-# Sage
-*.sage.py
-
-# Environments
-.env
-.venv
-env/
+.venv/
 venv/
 ENV/
+env/
 env.bak/
 venv.bak/
 
-# Spyder
-.spyderproject
-.spyproject
 
-# Rope
-.ropeproject
+# =========================================================
+# Environment / Secrets
+# =========================================================
 
-# mkdocs documentation
-/site
+.env
+.env.local
+.env.development
+.env.production
+.env.test
+.envrc
 
-# mypy
+
+# =========================================================
+# Django
+# =========================================================
+
+*.log
+local_settings.py
+
+# SQLite database
+db.sqlite3
+db.sqlite3-journal
+
+# User uploaded files
+media/
+
+# Collected static files
+staticfiles/
+
+
+# =========================================================
+# Django / Python Cache
+# =========================================================
+
+*.mo
+*.pot
+.pytest_cache/
 .mypy_cache/
 .dmypy.json
 dmypy.json
-
-# Pyre
 .pyre/
-
-# Jupyter Notebook
-.ipynb_checkpoints
-
-# IPython
-profile_default/
-ipython_config.py
-
-# pyenv
-.python-version
-
-# pipenv
-Pipfile.lock
-
-# PEP 582
-__pypackages__/
-
-# Celery
-celerybeat-schedule
-
-# SageMath parsed files
-*.sage.py
-
-# Environments
-.env
-.venv
-env/
-venv/
-ENV/
-.envrc
-
-# Unit test / coverage reports
+.pytype/
+.coverage
+.coverage.*
 htmlcov/
 .tox/
 .nox/
-.coverage
-.coverage.*
 .cache
 nosetests.xml
 coverage.xml
 *.cover
 *.py,cover
 .hypothesis/
-.pytest_cache/
 
-# Translations
-*.mo
-*.pot
 
-# Django stuff:
-*.log
-local_settings.py
-db.sqlite3
-db.sqlite3-journal
-
-# Flask stuff:
-instance/
-.webassets-cache
-
-# Scrapy stuff:
-.scrapy
-
-# Sphinx documentation
-docs/_build/
-
-# PyBuilder
-.pybuilder/
-target/
-
-# Jupyter Notebook
-.ipynb_checkpoints
-
-# IPython
-profile_default/
-ipython_config.py
-
-# pyenv
-.python-version
-
-# pipenv
-Pipfile.lock
-
-# PEP 582
-__pypackages__/
-
+# =========================================================
 # Celery
+# =========================================================
+
 celerybeat-schedule
 celerybeat.pid
 
-# SageMath parsed files
+
+# =========================================================
+# Jupyter Notebook
+# =========================================================
+
+.ipynb_checkpoints/
+profile_default/
+ipython_config.py
+
+
+# =========================================================
+# IDE / Editors
+# =========================================================
+
+.vscode/
+.idea/
+*.swp
+*.swo
+*.tmp
+*.sublime-project
+*.sublime-workspace
+
+
+# =========================================================
+# OS
+# =========================================================
+
+.DS_Store
+Thumbs.db
+
+
+# =========================================================
+# Documentation / Static Site
+# =========================================================
+
+/site
+docs/_build/
+
+
+# =========================================================
+# Frameworks / Tools
+# =========================================================
+
+instance/
+.webassets-cache
+.scrapy
+.pybuilder/
+target/
+
+.spyderproject
+.spyproject
+
+.ropeproject
+
+.python-version
+
+Pipfile.lock
+
+__pypackages__/
+
+
+# =========================================================
+# SageMath
+# =========================================================
+
 *.sage.py
 
-# Environments
-.env
-.venv
-env/
-venv/
-ENV/
-.envrc
 
-# My knowledge base
-.gitignore
-```
+# =========================================================
+# My Project Files
+# =========================================================
+
+*.bak
+*.backup
+*.orig
